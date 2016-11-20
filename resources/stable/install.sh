@@ -5,22 +5,22 @@ cat /resources/debian/sources.list > /etc/apt/sources.list
 apt-get update -y
 
 apt-get install -y \
-        zip \
+        bzip2 \
+        cron \
+        curl \
+        git \
+        less \
+        locales \
+        mc \
         openssl \
         pwgen \
-        curl \
-        vim \
-        ssh \
-        less \
-        git \
-        screen \
-        wget \
-        bzip2 \
-        sudo \
         rsync \
+        screen \
+        ssh \
+        sudo \
         unzip \
-        locales \
-        cron \
-        mc
+        vim \
+        wget \
+        zip
 
 apt-get clean

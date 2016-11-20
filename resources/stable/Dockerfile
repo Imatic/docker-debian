@@ -2,10 +2,17 @@ FROM debian:stable
 MAINTAINER Stepan Koci <stepan.koci@gmail.com>
 
 ENV TERM xterm
+ENV HOME /root
+ENV TAG stable
 
-COPY sources.list /resources/debian/sources.list
-COPY install.sh /resources/debian/install.sh
-COPY configure-user.sh /resources/debian/configure-user.sh
-
+# Installation
+COPY resources/${TAG}/sources.list  /resources/debian/sources.list
+COPY resources/${TAG}/install.sh    /resources/debian/install.sh
 RUN /resources/debian/install.sh
-RUN /resources/debian/configure-user.sh
+
+COPY resources/shared   /resources/debian-shared
+COPY resources/${TAG}   /resources/debian
+
+WORKDIR ${HOME}
+
+RUN /resources/debian-shared/configure-user.sh

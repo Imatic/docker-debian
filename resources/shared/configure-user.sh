@@ -4,3 +4,6 @@
 git config --global core.editor vim
 git config --global color.ui true
 git config --global core.fileMode false
+
+# Vim
+cp /resources/debian-shared/.vimrc ~/
